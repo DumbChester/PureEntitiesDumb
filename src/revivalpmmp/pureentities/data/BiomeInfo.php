@@ -39,9 +39,9 @@ class BiomeInfo{
 		10 => [],                            // Frozen Ocean
 		11 => [],                            // Frozen River
 		Biome::HELL => [Data::NETWORK_IDS["blaze"], Data::NETWORK_IDS["ghast"], Data::NETWORK_IDS["magma_cube"], Data::NETWORK_IDS["wither_skeleton"], Data::NETWORK_IDS["zombie_pigman"]],
-		Biome::ICE_PLAINS => [Data::NETWORK_IDS["rabbit"], Data::NETWORK_IDS["polar_bear"]],            // Ice Flats
+		Biome::ICE_PLAINS => [Data::NETWORK_IDS["rabbit"], Data::NETWORK_IDS["polar_bear"], Data::NETWORK_IDS["stray"]],            // Ice Flats
 		13 => [Data::NETWORK_IDS["rabbit"], Data::NETWORK_IDS["polar_bear"]],                            // Ice Mountains
-		21 => [Data::NETWORK_IDS["ocelot"], Data::NETWORK_IDS["parrot"]],                            // Jungle
+		21 => [Data::NETWORK_IDS["ocelot"], Data::NETWORK_IDS["parrot"], Data::NETWORK_IDS["witch"]],                            // Jungle
 		23 => [Data::NETWORK_IDS["ocelot"], Data::NETWORK_IDS["parrot"]],                            // Jungle Edge
 		22 => [Data::NETWORK_IDS["ocelot"], Data::NETWORK_IDS["parrot"]],                            // Jungle Hills
 		37 => [],                            // Mesa
@@ -51,10 +51,10 @@ class BiomeInfo{
 		14 => [Data::NETWORK_IDS["mooshroom"]],                            // Mushroom Island
 		15 => [Data::NETWORK_IDS["mooshroom"]],                            // Mushroom Island Shore
 		Biome::OCEAN => [Data::NETWORK_IDS["squid"], Data::NETWORK_IDS["salmon"], Data::NETWORK_IDS["pufferfish"], Data::NETWORK_IDS["tropicalfish"], Data::NETWORK_IDS["cod"], Data::NETWORK_IDS["dolphin"]],
-		Biome::PLAINS => [Data::NETWORK_IDS["chicken"], Data::NETWORK_IDS["cow"], Data::NETWORK_IDS["pig"], Data::NETWORK_IDS["rabbit"], Data::NETWORK_IDS["sheep"]],
+		Biome::PLAINS => [Data::NETWORK_IDS["chicken"], Data::NETWORK_IDS["cow"], Data::NETWORK_IDS["pig"], Data::NETWORK_IDS["rabbit"], Data::NETWORK_IDS["sheep"], Data::NETWORK_IDS["horse"], Data::NETWORK_IDS["donkey"], Data::NETWORK_IDS["mule"]],
 		32 => [],                            // Redwood Taiga or Mega Taiga
 		33 => [],                            // Redwood Taiga Hills or Mega Taiga Hills
-		Biome::RIVER => [],
+		Biome::RIVER => [Data::NETWORK_IDS["salmon"], Data::NETWORK_IDS["squid"]],
 		29 => [],                            // Roofed Forest
 		35 => [],                            // Savanna
 		36 => [],                            // Savanna Rock or Savanna Plateau

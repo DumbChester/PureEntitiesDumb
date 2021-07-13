@@ -70,8 +70,8 @@ class AutoSpawnTask extends Task{
 			$this->hostileMobs = 0;
 			$this->passiveDryMobs = 0;
 			$this->passiveWetMobs = 0;
+			$this->netherHostileMobs = 0;
 
-			// For now, spawning as overworld only.
 			foreach($level->getEntities() as $entity){
 				if(in_array(array_search($entity::NETWORK_ID, Data::NETWORK_IDS), MobTypeMaps::OVERWORLD_HOSTILE_MOBS)){
 					$this->hostileMobs++;
@@ -86,7 +86,7 @@ class AutoSpawnTask extends Task{
 			PureEntities::logOutput("AutoSpawnTask: Hostiles = $this->hostileMobs");
 			PureEntities::logOutput("AutoSpawnTask: Passives(Dry) = $this->passiveDryMobs");
 			PureEntities::logOutput("AutoSpawnTask: Passives(Wet) = $this->passiveWetMobs");
-
+            PureEntities::logOutput("AutoSpawnTask: Nether Hostiles = $this->netherHostileMobs");
 			$playerLocations = [];
 
 
@@ -100,7 +100,6 @@ class AutoSpawnTask extends Task{
 						array_push($playerLocations, $player->getPosition());
 					}
 				}
-
 				// List of chunks eligible to spawn new mobs.
 				$spawnMap = $this->generateSpawnMap($playerLocations);
 
@@ -231,13 +230,13 @@ class AutoSpawnTask extends Task{
 		$maxPackSize = 4;
 		$currentPackSize = 0;
 
-		for($attempts = 0; $attempts <= 12 and $currentPackSize < $maxPackSize; $attempts++){
-			$x = mt_rand(-20, 20) + $center->x;
-			$z = mt_rand(-20, 20) + $center->z;
+		for($attempts = 0; $attempts <= 16 and $currentPackSize < $maxPackSize; $attempts++){
+			$x = mt_rand(-2, 2) + $center->x;
+			$z = mt_rand(-2, 2) + $center->z;
 			$pos = new Position($x, $center->y, $z, $level);
 			
 			//DrySpawnMob
-			if($type != "passive" and $this->isValidDrySpawnLocation($pos) and $this->isSpawnAllowedByBiome($entityId, $level->getBiomeId($x, $z))){
+			if(($type == "passive" or $type !== "hostile") and $this->isValidDrySpawnLocation($pos) and $this->isSpawnAllowedByBiome($entityId, $level->getBiomeId($x, $z))){
 				PureEntities::logOutput("AutoSpawnTask: Spawning Mob (ID = $entityId) to location: $x, $center->y, $z");
 				$success = PureEntities::getInstance()->scheduleCreatureSpawn($pos, $entityId, $level, $type, $isBaby) !== null;
 				if($success)
