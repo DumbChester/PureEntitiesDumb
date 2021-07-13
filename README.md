@@ -1,7 +1,14 @@
 # PureEntitiesDumb
 # From the original PureEntitiesX 
-# Changes :
-# Adeed PassiveWaterMob Spawning
-# Added NetherHostileMobSPawning
-# FIx some deprecated codes
- 
+Changes/Updates:
+-Added PassiveWaterMob Spawning
+-Added NetherHostileMobSPawning
+-Added new mobs to BiomeInfo
+-Fixed and updated some deprecated codes
+
+Todo:
+-New Spawning Algo similar to bedrock.
+-New AI
+-Add new Mobs
+-Fix Taming/Breeding 
+
